@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#303f9f</color>
+    <color name="colorPrimaryDark">#232e76</color>
+    <color name="colorPrimaryLight">#2a378b</color>
+    <color name="colorAccent">#3f51b5</color>
+    <color name="colorBGRecycler">#3f51b5</color>
+
+    <color name="colorSwipeToFavorite">#3f51b5</color>
+    <color name="colorSwipeToRead">#3f51b5</color>
+
+    <color name="colorBackWeb">#212121</color>
+    <color name="colorTextWeb">#BDBDBD</color>
+</resources>

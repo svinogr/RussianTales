@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "255178098747",
+    "firebase_url": "https://russiantales-b440d.firebaseio.com",
+    "project_id": "russiantales-b440d",
+    "storage_bucket": "russiantales-b440d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255178098747:android:7f457efe7ac122d1",
+        "android_client_info": {
+          "package_name": "info.upump.russianapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255178098747-jglrpkr3fau5803jpp30c019tco2eh2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "info.upump.russianapp",
+            "certificate_hash": "bc9ce795cb088a273ccb0f76d003ba3e75955195"
+          }
+        },
+        {
+          "client_id": "255178098747-p13g23qkocd3oiuf5s140chjct9prvbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAgMNtgT09VRqYLstB1uwE6u5xn1ezzkc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255178098747-p13g23qkocd3oiuf5s140chjct9prvbr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

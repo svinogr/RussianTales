@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Russian Tales</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="saved_light_regime">light</string>
+    <string name="mail_to">updevel@gmail.com</string>
+    <string name="toast_favorite_add">Добавлено в избранное</string>
+    <string name="toast_favorite_remove">Удалено из избранного</string>
+    <string name="toast_read_add">Отмечено как прочитаное</string>
+    <string name="toast_read_remove">Отмечено как непрочитаное</string>
+    <string name="about_dialog_text">Тест</string>
+    <string name="adUnitId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="cover_title_history">Истории</string>
+    <string name="cover_title_favorite">Избранное</string>
+</resources>
