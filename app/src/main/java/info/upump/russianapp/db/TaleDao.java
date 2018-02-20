@@ -25,6 +25,7 @@ public class TaleDao extends DataBaseDao implements IData<Tale> {
                 new String[]{
                         DBHelper.TABLE_KEY_ID,
                         DBHelper.TABLE_KEY_TEXT,
+                        DBHelper.TABLE_KEY_IMG_CHAR,
                         DBHelper.TABLE_KEY_ID_COVER,
                 },
                 null, null, null, null, null, null
@@ -35,7 +36,8 @@ public class TaleDao extends DataBaseDao implements IData<Tale> {
                 Tale tale = new Tale();
                 tale.setId(cursor.getLong(0));
                 tale.setText(cursor.getString(1));
-                tale.setCover(new Cover(cursor.getLong(2)));
+                tale.setImgChar(cursor.getString(2));
+                tale.setCover(new Cover(cursor.getLong(3)));
                 taleList.add(tale);
             } while (cursor.moveToNext());
         }
@@ -48,6 +50,7 @@ public class TaleDao extends DataBaseDao implements IData<Tale> {
                 new String[]{
                         DBHelper.TABLE_KEY_ID,
                         DBHelper.TABLE_KEY_TEXT,
+                        DBHelper.TABLE_KEY_IMG_CHAR,
                         DBHelper.TABLE_KEY_ID_COVER,
                 },
                 DBHelper.TABLE_KEY_ID_COVER + " =? ", new String[]{String.valueOf(cover.getId())}, null, null, null, null
@@ -58,7 +61,8 @@ public class TaleDao extends DataBaseDao implements IData<Tale> {
                 Tale tale = new Tale();
                 tale.setId(cursor.getLong(0));
                 tale.setText(cursor.getString(1));
-                tale.setCover(new Cover(cursor.getLong(2)));
+                tale.setImgChar(cursor.getString(2));
+                tale.setCover(new Cover(cursor.getLong(3)));
                 taleList.add(tale);
             } while (cursor.moveToNext());
         }
@@ -69,6 +73,7 @@ public class TaleDao extends DataBaseDao implements IData<Tale> {
     public Tale save(Tale tale) {
         ContentValues cv = new ContentValues();
         cv.put(DBHelper.TABLE_KEY_TEXT, tale.getText());
+        cv.put(DBHelper.TABLE_KEY_IMG_CHAR, tale.getImgChar());
         cv.put(DBHelper.TABLE_KEY_ID_COVER, tale.getCover().getId());
         long insert = sqLiteDatabase.insert(DBHelper.TABLE_TALE, null, cv);
         if(insert<0){return null;}

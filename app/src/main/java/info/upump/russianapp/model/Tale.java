@@ -8,6 +8,7 @@ public class Tale {
     private long id;
     private String text;
     private Cover cover;
+    private String imgChar;
 
     public Tale(long id) {
         this.id = id;
@@ -46,5 +47,13 @@ public class Tale {
                 "id=" + id +
                 ", cover=" + cover.getTitle() +
                 '}';
+    }
+
+    public String getImgChar() {
+        return imgChar;
+    }
+
+    public void setImgChar(String imgChar) {
+        this.imgChar = imgChar;
     }
 }

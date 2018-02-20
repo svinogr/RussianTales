@@ -31,6 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_KEY_READ = "read";
     public static final String TABLE_KEY_IMG_COVER = "img_cover";
     public static final String TABLE_KEY_ID_AUTHOR = "id_author";
+    public static final String TABLE_KEY_IMG_CHAR = "img_char";
 
     public static final String TABLE_KEY_ID_COVER = "cover_id";
     public static final String TABLE_KEY_TEXT = "text";
@@ -51,7 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE `cover` ( `_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `title` TEXT NOT NULL, `rate` INTEGER, `favorite` INTEGER NOT NULL, `read` INTEGER NOT NULL, `id_author` INTEGER, `img_cover` TEXT )");
-        db.execSQL("CREATE TABLE `tale` ( `_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `text` BLOB, `cover_id` INTEGER NOT NULL )");
+        db.execSQL("CREATE TABLE `tale` ( `_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `text` BLOB,"+TABLE_KEY_IMG_CHAR+" TEXT, "+"`cover_id` INTEGER NOT NULL )");
     }
 
     @Override

@@ -38,7 +38,13 @@ public class TaleFragment extends Fragment implements IVolumeControl {
     private FloatingActionButton floatingActionButton;
     private WebView text;
     private IControllerFragment iControllerfragment;
-    private static final String START_HTML = "<html><body style=\"text-align:justify; color:";
+    private static final String START_HTML = "<html>";
+
+
+    private static final String START_BODY = "<body style=\"text-align:justify; color:";
+    private static final String VENZEL = "<p><img  style=\"display: block; margin: 0 auto;\" src=\"venzel.png\"   width=\"70\" height=\"15\"></p>";
+    private static final String CHAR_IMG1 = "<p><img src=\"";
+    private static final String CHAR_IMG2 = "\" width=\"130\" height=\"170\" style = \"float:left; margin: 0px 8px 8px 0px;\">";
     private static final String MIDLLE_HTML = " \">";
     private static final String END_HTML = "</body></html>";
 
@@ -91,14 +97,12 @@ public class TaleFragment extends Fragment implements IVolumeControl {
         floatingActionButton = getActivity().findViewById(R.id.fab);
         floatingActionButton.setVisibility(View.VISIBLE);
         setFavoriteColorToFab();
-
-
-        int imgIdent = RandomImg.getRandomIdentForImg(getContext());
+        int imgIdent = getImgIdent();
         iControllerfragment.setTitle(cover.getTitle(), imgIdent);
 
         text = inflate.findViewById(R.id.fragment_tale_text);
         text.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorBackWeb));
-        text.loadDataWithBaseURL(null, getColoredTextForWebView(), "text/html", "UTF-8", null);
+        text.loadDataWithBaseURL("file:///android_asset/", getColoredTextForWebView(), "text/html", "UTF-8", null);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +129,10 @@ public class TaleFragment extends Fragment implements IVolumeControl {
         return inflate;
     }
 
+    private int getImgIdent() {
+        return getContext().getResources().getIdentifier(cover.getImg(), "drawable", getContext().getPackageName());
+    }
+
     private void setFavoriteColorToFab() {
         System.out.println(cover.isFavorite());
         if (cover.isFavorite()) {
@@ -136,8 +144,15 @@ public class TaleFragment extends Fragment implements IVolumeControl {
     private String getColoredTextForWebView() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(START_HTML);
+        stringBuilder.append(START_BODY);
         stringBuilder.append("#" + Integer.toHexString(ContextCompat.getColor(getContext(), R.color.colorTextWeb) & 0x00ffffff) + MIDLLE_HTML);
+        stringBuilder.append(VENZEL);
+        stringBuilder.append(CHAR_IMG1);
+        stringBuilder.append(tale.getImgChar());
+        System.out.println(tale.getImgChar());
+        stringBuilder.append(CHAR_IMG2);
         stringBuilder.append(tale.getText());
+        stringBuilder.append(VENZEL);
         stringBuilder.append(END_HTML);
         return stringBuilder.toString();
     }
@@ -159,8 +174,8 @@ public class TaleFragment extends Fragment implements IVolumeControl {
     @Override
     public void Up() {
         System.out.println(text.pageUp(false));
-       // text.scrollTo(25, 25);
-        System.out.println(text.getScrollX()+" "+ text.getScrollY());
+        // text.scrollTo(25, 25);
+        System.out.println(text.getScrollX() + " " + text.getScrollY());
 
     }
 
