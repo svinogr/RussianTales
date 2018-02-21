@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +44,9 @@ public class TaleFragment extends Fragment implements IVolumeControl {
 
     private static final String START_BODY = "<body style=\"text-align:justify; color:";
     private static final String VENZEL = "<p><img  style=\"display: block; margin: 0 auto;\" src=\"venzel.png\"   width=\"70\" height=\"15\"></p>";
+    private static final String VENZEL_N = "<p><img  style=\"display: block; margin: 0 auto;\" src=\"venzelN.png\"   width=\"70\" height=\"15\"></p>";
     private static final String CHAR_IMG1 = "<p><img src=\"";
-    private static final String CHAR_IMG2 = "\" width=\"130\" height=\"170\" style = \"float:left; margin: 0px 8px 8px 0px;\">";
+    private static final String CHAR_IMG2 = "\" width=\"130\" height=\"170\" style = \"float:left; margin: 0px 8px 0px 0px;\">";
     private static final String MIDLLE_HTML = " \">";
     private static final String END_HTML = "</body></html>";
 
@@ -121,7 +123,6 @@ public class TaleFragment extends Fragment implements IVolumeControl {
 
         AdView mNativeAd = inflate.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
 
         mNativeAd.loadAd(adRequest);
@@ -146,22 +147,30 @@ public class TaleFragment extends Fragment implements IVolumeControl {
         stringBuilder.append(START_HTML);
         stringBuilder.append(START_BODY);
         stringBuilder.append("#" + Integer.toHexString(ContextCompat.getColor(getContext(), R.color.colorTextWeb) & 0x00ffffff) + MIDLLE_HTML);
-        stringBuilder.append(VENZEL);
+        stringBuilder.append(getVenzel());
         stringBuilder.append(CHAR_IMG1);
         stringBuilder.append(tale.getImgChar());
         System.out.println(tale.getImgChar());
         stringBuilder.append(CHAR_IMG2);
         stringBuilder.append(tale.getText());
-        stringBuilder.append(VENZEL);
+        stringBuilder.append(getVenzel());
         stringBuilder.append(END_HTML);
         return stringBuilder.toString();
+    }
+
+    private String getVenzel() {
+        int mode = AppCompatDelegate.getDefaultNightMode();
+        if (mode == AppCompatDelegate.MODE_NIGHT_NO) {
+            return VENZEL;
+        } else {
+            return VENZEL_N;
+        }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         iControllerfragment = (IControllerFragment) context;
-
 
     }
 

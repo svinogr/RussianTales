@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
             CoverFragment coverFragment = CoverFragment.newInstance();
             createFragment(coverFragment);
         }
-        MobileAds.initialize(this, "ca-app-pub-7715449191385617~5078694184");
+        MobileAds.initialize(this, getString(R.string.init_AdMOb));
 
 
     }
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity
             Intent email = new Intent(Intent.ACTION_SEND);
             email.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             email.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.mail_to)});
-            email.putExtra(Intent.EXTRA_SUBJECT, "CreepyApp");
+            email.putExtra(Intent.EXTRA_SUBJECT, "RCF");
             email.putExtra(Intent.EXTRA_TEXT, "");
             email.setType("plain/text");
             startActivity(Intent.createChooser(email, "Choose an Email client :"));

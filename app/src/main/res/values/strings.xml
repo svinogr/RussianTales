@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Russian Tales</string>
+    <string name="app_name">Russian FairyTales</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -15,8 +15,10 @@
     <string name="toast_favorite_remove">Удалено из избранного</string>
     <string name="toast_read_add">Отмечено как прочитаное</string>
     <string name="toast_read_remove">Отмечено как непрочитаное</string>
-    <string name="about_dialog_text">Тест</string>
-    <string name="adUnitId">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="cover_title_history">Истории</string>
+    <string name="adUnitId">ca-app-pub-7715449191385617/3932394782</string>
+    <string name="cover_title_history">Сказки</string>
     <string name="cover_title_favorite">Избранное</string>
+    <string name="send_tale">Прислать свою сказку</string>
+    <string name="nav_title">Russian Classic Fairytales</string>
+    <string name="init_AdMOb">ca-app-pub-7715449191385617~2156278688</string>
 </resources>

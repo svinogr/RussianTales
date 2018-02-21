@@ -60,7 +60,6 @@ public abstract class AbstractCoverFragment extends Fragment implements LoaderMa
 
         AdView mNativeAd = inflate.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                                .build();
 
         mNativeAd.loadAd(adRequest);

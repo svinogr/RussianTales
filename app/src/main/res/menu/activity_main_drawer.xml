@@ -7,11 +7,11 @@
         <item
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_book"
-            android:title="Истории" />
+            android:title="@string/cover_title_history" />
         <item
             android:id="@+id/nav_favorite"
             android:icon="@drawable/ic_favorite"
-            android:title="Избранное" />
+            android:title="@string/cover_title_favorite" />
            </group>
 
     <item android:title="">
@@ -19,7 +19,7 @@
             <item
                 android:id="@+id/nav_send_history"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Прислать свою историю" />
+                android:title="@string/send_tale" />
 
         </menu>
     </item>
