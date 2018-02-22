@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -83,9 +84,11 @@ public class TaleFragment extends Fragment implements IVolumeControl {
             cover.setRead(getArguments().getBoolean(READ));
             cover.setAuthor(new Author(getArguments().getLong(ID_AUTHOR)));
             cover.setImg(getArguments().getString(IMG));
+
         }
         IData iData = new TaleDao(getContext());
         this.tale = (Tale) iData.getByParent(cover).get(0);
+
 
     }
 
@@ -175,21 +178,29 @@ public class TaleFragment extends Fragment implements IVolumeControl {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(FAVORITE, cover.isFavorite());
+    public void onDetach() {
+        super.onDetach();
+        iControllerfragment = null;
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(FAVORITE, cover.isFavorite());
+
+    }
+
+
+    @Override
     public void Up() {
-        System.out.println(text.pageUp(false));
+    //    System.out.println(text.pageUp(false));
         // text.scrollTo(25, 25);
-        System.out.println(text.getScrollX() + " " + text.getScrollY());
+      //  System.out.println(text.getScrollX() + " " + text.getScrollY());
 
     }
 
     @Override
     public void Down() {
-        System.out.println(text.pageDown(true));
+        //System.out.println(text.pageDown(true));
     }
 }

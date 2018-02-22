@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     private ImageView imageView;
     private Menu menuTool;
     public IVolumeControl iVolumeControl;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity
         if (savedInstanceState == null) {
             SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
 
-            boolean moon = sharedPref.getBoolean(MOON, false);
+            boolean moon = sharedPref.getBoolean(MOON, true);
             // Set the local night mode to some value
             if (moon) {
                 getDelegate().setDefaultNightMode(
@@ -88,7 +89,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (getSupportFragmentManager().getBackStackEntryCount() < 1) {
+        System.out.println("кол-во экрано "+getSupportFragmentManager().getBackStackEntryCount());
+        if (getSupportFragmentManager().getBackStackEntryCount() < 2) {
             finish();
         }
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -177,12 +179,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void createFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         System.out.println(getSupportFragmentManager().getBackStackEntryCount());
-        if (!(fragment instanceof CoverFragment)) {
+        //if (!(fragment instanceof CoverFragment)) {
             fragmentTransaction.addToBackStack(null);
-        }
+       // }
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
     }
@@ -194,14 +196,13 @@ public class MainActivity extends AppCompatActivity
         Picasso.with(this).load(imgIdent).into(imageView);
     }
 
-    @Override
+ /*   @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if( getSupportFragmentManager().findFragmentById(R.id.fragment_container) instanceof IVolumeControl) {
+        // возможно  вбудущем
+       *//* if( getSupportFragmentManager().findFragmentById(R.id.fragment_container) instanceof IVolumeControl) {
             iVolumeControl = (IVolumeControl) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-            System.out.println(iVolumeControl);
         }
         switch (keyCode) {
-
             case KeyEvent.KEYCODE_VOLUME_UP:
                 if(iVolumeControl != null){
                     iVolumeControl.Up();
@@ -218,6 +219,7 @@ public class MainActivity extends AppCompatActivity
 
                 return true;
         }
-        return super.onKeyDown(keyCode, event);
-    }
+        return super.onKeyDown(keyCode, event);*//*
+       return false;
+    }*/
 }
